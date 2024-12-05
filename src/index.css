@@ -19,6 +19,14 @@ body::-webkit-scrollbar {
   border-radius: 3px;
 }
 
+.text-gradient {
+  background: linear-gradient(90deg, #fbc2eb, #a6c1ee);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+
 html {
   scroll-behavior: smooth;
 }

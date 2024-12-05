@@ -1,11 +1,12 @@
-import React, { useRef, useState } from "react"
+import * as React from "react"
 import { motion } from "framer-motion"
 import emailjs from "@emailjs/browser"
 import toast, { Toaster } from "react-hot-toast"
+import { FiLoader } from "react-icons/fi" 
 
 const Contact: React.FC = () => {
-  const formRef = useRef<HTMLFormElement>(null)
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const formRef = React.useRef<HTMLFormElement>(null)
+  const [isSubmitting, setIsSubmitting] = React.useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -88,7 +89,13 @@ const Contact: React.FC = () => {
                   ? "opacity-50 cursor-not-allowed"
                   : "hover:opacity-90"
               }`}>
-              {isSubmitting ? "Sending..." : "Send Message"}
+              {isSubmitting ? (
+                <div className='flex justify-center'>
+                  <FiLoader className='animate-spin' size={24} />
+                </div>
+              ) : (
+                "Send Message"
+              )}
             </motion.button>
           </form>
         </motion.div>
