@@ -4,11 +4,33 @@ import { TypeAnimation } from "react-type-animation"
 import { FaArrowRight, FaDownload } from "react-icons/fa"
 
 const Hero: React.FC = () => {
+  const [deviceType, setDeviceType] = React.useState<string>("")
+
+  React.useEffect(() => {
+    const updateDeviceType = () => {
+      const width = window.innerWidth
+
+      if (width < 640) {
+        setDeviceType("mobile")
+      } else if (width >= 640 && width < 1024) {
+        setDeviceType("tablet")
+      } else {
+        setDeviceType("laptop")
+      }
+    }
+
+    updateDeviceType()
+
+    window.addEventListener("resize", updateDeviceType)
+
+    return () => window.removeEventListener("resize", updateDeviceType)
+  }, [])
+
   const handleDownloadResume = () => {
     const resumeUrl = "/resume.pdf"
     const link = document.createElement("a")
     link.href = resumeUrl
-    link.download = "your-name-resume.pdf"
+    link.download = "rajesh_resume.pdf"
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -22,7 +44,8 @@ const Hero: React.FC = () => {
         initial={{ x: "-100%" }}
         animate={{ x: "100%" }}
         transition={{
-          duration: 7,
+          duration:
+            deviceType === "mobile" ? 3.5 : deviceType === "tablet" ? 5 : 7,
           repeat: Infinity,
           ease: "linear",
         }}></motion.div>
