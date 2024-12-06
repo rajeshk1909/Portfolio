@@ -48,7 +48,7 @@ const Skills: React.FC = () => {
                 <div className='w-16 h-16 flex items-center justify-center bg-gray-900 rounded-full text-4xl shadow-md'>
                   {skill.icon}
                 </div>
-                <h3 className='ml-6 text-2xl tracking-wide font-semibold text-white'>
+                <h3 className='ml-6 text-xl font-lexend tracking-wide font-medium text-white'>
                   {skill.name}
                 </h3>
               </div>

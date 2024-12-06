@@ -40,16 +40,16 @@ const Contact: React.FC = () => {
           transition={{ duration: 0.5 }}
           className='max-w-2xl mx-auto bg-gray-900 p-10 rounded-2xl shadow-2xl'>
           <h2 className='text-4xl font-semibold text-center text-white mb-6'>
-            <span className='bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-500'>
+            <span className='bg-clip-text text-transparent font-montserrat font-bold bg-gradient-to-r from-indigo-400 to-purple-500'>
               Get In Touch
             </span>
           </h2>
           <div className='text-center mb-8'>
-            <p className='text-gray-400 text-lg'>
-              Reach out to us at{" "}
+            <p className='text-gray-400 font-lexend gap-2 flex items-center md:flex-row flex-col justify-center font-medium text-lg'>
+              Reach out to us at
               <a
                 href='mailto:rajeshkumarcontactdev@gmail.com'
-                className='text-blue-400 hover:text-blue-300 font-semibold'>
+                className='text-blue-400 hover:text-blue-500 text-lg font-kufam font-medium'>
                 rajeshkumarcontactdev@gmail.com
               </a>
             </p>

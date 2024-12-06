@@ -20,7 +20,7 @@ const projects: Project[] = [
     description:
       "Real-time task management application with team collaboration features.",
     technologies: ["React", "TypeScript", "Firebase", "Tailwind CSS"],
-    imageUrl: "/projects/task-manager.jpg",
+    imageUrl: "/projects/ecommerce.jpg",
     githubUrl: "https://github.com/yourusername/task-manager",
     liveUrl: "https://task-manager-demo.com",
   },
@@ -30,7 +30,7 @@ const projects: Project[] = [
     description:
       "Analytics dashboard for social media metrics with real-time data visualization.",
     technologies: ["React", "D3.js", "Node.js", "PostgreSQL"],
-    imageUrl: "/projects/dashboard.jpg",
+    imageUrl: "/projects/ecommerce.jpg",
     githubUrl: "https://github.com/yourusername/social-dashboard",
     liveUrl: "https://dashboard-demo.com",
   },
@@ -40,7 +40,7 @@ const projects: Project[] = [
     description:
       "Real-time chat application with AI-powered responses and language translation.",
     technologies: ["React", "WebSocket", "OpenAI API", "MongoDB"],
-    imageUrl: "/projects/chat-app.jpg",
+    imageUrl: "/projects/ecommerce.jpg",
     githubUrl: "https://github.com/yourusername/ai-chat",
     liveUrl: "https://ai-chat-demo.com",
   },
@@ -56,7 +56,7 @@ const Projects: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className='text-5xl font-extrabold text-center mb-12 text-gray-100'>
+          className='text-5xl font-bold font-montserrat text-center mb-12 text-gray-100'>
           Featured Projects
         </motion.h2>
 
@@ -67,7 +67,7 @@ const Projects: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className='relative bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-700 hover:shadow-xl transform transition-transform duration-500'>
+              className='relative bg-gray-800 rounded-xl shadow-lg overflow-hidden  hover:shadow-xl transform transition-transform duration-500'>
               <div className='relative'>
                 <img
                   src={project.imageUrl}
@@ -76,15 +76,17 @@ const Projects: React.FC = () => {
                 />
               </div>
               <div className='p-6'>
-                <h3 className='text-2xl font-bold text-gray-100 mb-3'>
+                <h3 className='text-2xl font-bold font-montserrat text-gray-100 mb-3'>
                   {project.title}
                 </h3>
-                <p className='text-gray-400 mb-4'>{project.description}</p>
+                <p className='text-gray-400 font-medium font-kufam mb-4'>
+                  {project.description}
+                </p>
                 <div className='flex flex-wrap gap-2 mb-4'>
                   {project.technologies.map((tech) => (
                     <motion.span
                       key={tech}
-                      className='px-4 py-2 text-sm bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full'
+                      className='px-4 py-2 font-medium font-lexend text-sm bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full'
                       whileHover={{ scale: 1.05 }}>
                       {tech}
                     </motion.span>
@@ -97,7 +99,7 @@ const Projects: React.FC = () => {
                       href={project.githubUrl}
                       target='_blank'
                       rel='noopener noreferrer'
-                      className='flex items-center px-6 py-2 bg-gray-700 text-gray-300 rounded-lg shadow-lg hover:bg-gray-600 transition-all duration-300'>
+                      className='flex items-center px-6 py-2 bg-gray-700 font-medium font-kufam text-gray-300 rounded-lg shadow-lg hover:bg-gray-600 transition-all duration-300'>
                       <FaGithub className='mr-2 text-lg' />
                       GitHub
                     </a>
@@ -107,7 +109,7 @@ const Projects: React.FC = () => {
                       href={project.liveUrl}
                       target='_blank'
                       rel='noopener noreferrer'
-                      className='flex items-center px-6 py-2 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-500 transition-all duration-300'>
+                      className='flex items-center px-6 py-2 bg-blue-600 text-white font-medium font-kufam rounded-lg shadow-lg hover:bg-blue-500 transition-all duration-300'>
                       <FaExternalLinkAlt className='mr-2 text-lg' />
                       Live Demo
                     </a>

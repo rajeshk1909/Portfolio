@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        montserrat: ["Montserrat"],
+        montserrat: ["Montserrat", "sans-serif"],
         kufam: ["Kufam"],
         lexend: ["Lexend", "sans-serif"],
       },
