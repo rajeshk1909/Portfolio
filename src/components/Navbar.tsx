@@ -42,7 +42,7 @@ const Navbar: React.FC = () => {
         <Link
           to='home'
           smooth={true}
-          className='text-3xl font-bold font-montserrat text-white cursor-pointer tracking-wide'>
+          className='lg:text-3xl md:text-2xl text-xl font-bold font-montserrat text-white cursor-pointer tracking-wide'>
           <motion.div
             whileHover={{ scale: 1.1 }}
             className='flex items-center space-x-2'>

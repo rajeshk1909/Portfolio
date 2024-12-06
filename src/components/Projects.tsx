@@ -8,41 +8,54 @@ const projects: Project[] = [
     id: 1,
     title: "E-Commerce Platform",
     description:
-      "Full-stack e-commerce platform with user authentication, product management, and payment integration.",
-    technologies: ["React", "Redux", "Node.js", "MongoDB", "Express"],
+      "A full-stack e-commerce platform that allows users to browse products, add items to the cart, make payments, and manage their orders.",
+    technologies: ["React", "HTML5", "SASS", "MySQL", "Django"],
     imageUrl: "/projects/ecommerce.jpg",
-    githubUrl: "https://github.com/yourusername/ecommerce",
-    liveUrl: "https://ecommerce-demo.com",
+    githubUrl: "https://github.com/rajeshk1909",
+    liveUrl: "https://hellofixy.com/",
   },
   {
     id: 2,
-    title: "Task Management App",
+    title: "Linksphere",
     description:
-      "Real-time task management application with team collaboration features.",
-    technologies: ["React", "TypeScript", "Firebase", "Tailwind CSS"],
+      "A fully animated social networking platform that allows users to connect, share, and discover content with smooth animations and interactions.",
+    technologies: [
+      "React",
+      "HTML5",
+      "Vite",
+      "TypeScript",
+      "MUI",
+      "Tailwind CSS",
+    ],
     imageUrl: "/projects/ecommerce.jpg",
-    githubUrl: "https://github.com/yourusername/task-manager",
-    liveUrl: "https://task-manager-demo.com",
+    githubUrl: "https://github.com/rajeshk1909",
+    liveUrl: "https://linksphere.onrender.com",
   },
   {
     id: 3,
-    title: "Social Media Dashboard",
+    title: "Task Manager",
     description:
-      "Analytics dashboard for social media metrics with real-time data visualization.",
-    technologies: ["React", "D3.js", "Node.js", "PostgreSQL"],
+      "A task management application that helps users to create, update, and track their tasks, with features like prioritization and due dates.",
+    technologies: [
+      "React Vite",
+      "HTML5",
+      "Redux",
+      "Tailwind CSS",
+      "TypeScript",
+    ],
     imageUrl: "/projects/ecommerce.jpg",
-    githubUrl: "https://github.com/yourusername/social-dashboard",
-    liveUrl: "https://dashboard-demo.com",
+    githubUrl: "https://github.com/rajeshk1909/ClickMe",
+    liveUrl: "https://clickme-ymxe.onrender.com",
   },
   {
     id: 4,
-    title: "AI Chat Application",
+    title: "Role-Based Access System",
     description:
-      "Real-time chat application with AI-powered responses and language translation.",
-    technologies: ["React", "WebSocket", "OpenAI API", "MongoDB"],
+      "A system that implements role-based access control, allowing admins to assign and manage user roles for different access permissions.",
+    technologies: ["React vite", "HTML5", "Redux", "TypeScript", "MUI"],
     imageUrl: "/projects/ecommerce.jpg",
-    githubUrl: "https://github.com/yourusername/ai-chat",
-    liveUrl: "https://ai-chat-demo.com",
+    githubUrl: "https://github.com/rajeshk1909/RBAC-FE",
+    liveUrl: "https://rbac-ui.onrender.com",
   },
 ]
 
@@ -63,7 +76,7 @@ const Projects: React.FC = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>
           {projects.map((project, index) => (
             <motion.div
-              key={project.id}
+              key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -83,9 +96,9 @@ const Projects: React.FC = () => {
                   {project.description}
                 </p>
                 <div className='flex flex-wrap gap-2 mb-4'>
-                  {project.technologies.map((tech) => (
+                  {project.technologies.map((tech, index) => (
                     <motion.span
-                      key={tech}
+                      key={index}
                       className='px-4 py-2 font-medium font-lexend text-sm bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full'
                       whileHover={{ scale: 1.05 }}>
                       {tech}
@@ -99,7 +112,7 @@ const Projects: React.FC = () => {
                       href={project.githubUrl}
                       target='_blank'
                       rel='noopener noreferrer'
-                      className='flex items-center px-6 py-2 bg-gray-700 font-medium font-kufam text-gray-300 rounded-lg shadow-lg hover:bg-gray-600 transition-all duration-300'>
+                      className={`flex items-center px-6 py-2 bg-gray-700 font-medium font-kufam text-gray-300 rounded-lg shadow-lg hover:bg-gray-600 transition-all duration-300`}>
                       <FaGithub className='mr-2 text-lg' />
                       GitHub
                     </a>
