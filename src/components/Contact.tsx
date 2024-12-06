@@ -1,12 +1,14 @@
 import * as React from "react"
 import { motion } from "framer-motion"
 import emailjs from "@emailjs/browser"
-import toast, { Toaster } from "react-hot-toast"
 import { FiLoader } from "react-icons/fi"
+import { useToast } from "../components/Toast"
 
 const Contact: React.FC = () => {
   const formRef = React.useRef<HTMLFormElement>(null)
-  const [isSubmitting, setIsSubmitting] = React.useState(false)
+  const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false)
+
+  const { showToast } = useToast()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -20,10 +22,10 @@ const Contact: React.FC = () => {
         formRef.current,
         "LvwEUE5w6ajjZaJKp"
       )
-      toast.success("Message sent successfully!")
+      showToast("success", "Message sent successfully!")
       formRef.current.reset()
     } catch (error) {
-      toast.error("Failed to send message. Please try again.")
+      showToast("error", "Failed to send message Please try again.")
     } finally {
       setIsSubmitting(false)
     }
@@ -100,7 +102,6 @@ const Contact: React.FC = () => {
           </form>
         </motion.div>
       </div>
-      <Toaster position='bottom-right' />
     </section>
   )
 }

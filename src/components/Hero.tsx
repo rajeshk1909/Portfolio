@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
         initial={{ x: "-100%" }}
         animate={{ x: "100%" }}
         transition={{
-          duration: 10,
+          duration: 7,
           repeat: Infinity,
           ease: "linear",
         }}></motion.div>
