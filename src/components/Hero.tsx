@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
         animate={{ x: "100%" }}
         transition={{
           duration:
-            deviceType === "mobile" ? 3.5 : deviceType === "tablet" ? 5 : 7,
+            deviceType === "mobile" ? 2.5 : deviceType === "tablet" ? 4.5 : 7,
           repeat: Infinity,
           ease: "linear",
         }}></motion.div>
