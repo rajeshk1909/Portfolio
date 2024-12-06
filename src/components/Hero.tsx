@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
     <section className='relative h-screen flex items-center justify-center bg-gradient-to-b from-indigo-900 via-purple-900 to-black overflow-hidden'>
       {/* Dynamic Background with Motion */}
       <motion.div
-        className='absolute inset-0 bg-gradient-to-r from-cyan-600 to-blue-800 opacity-80'
+        className='absolute inset-0 bg-gradient-to-r from-teal-500 via-blue-500 to-purple-600 opacity-80'
         initial={{ x: "-100%" }}
         animate={{ x: "100%" }}
         transition={{

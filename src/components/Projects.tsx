@@ -9,7 +9,7 @@ const projects: Project[] = [
     title: "E-Commerce Platform",
     description:
       "A full-stack e-commerce platform that allows users to browse products, add items to the cart, make payments, and manage their orders.",
-    technologies: ["React", "HTML5", "SASS", "MySQL", "Django"],
+    technologies: ["React", "HTML5", "SASS", "MySQL", "MUI", "Django"],
     imageUrl: "/projects/ecommerce.jpg",
     githubUrl: "https://github.com/rajeshk1909",
     liveUrl: "https://hellofixy.com/",
@@ -52,7 +52,14 @@ const projects: Project[] = [
     title: "Role-Based Access System",
     description:
       "A system that implements role-based access control, allowing admins to assign and manage user roles for different access permissions.",
-    technologies: ["React vite", "HTML5", "Redux", "TypeScript", "MUI"],
+    technologies: [
+      "React vite",
+      "Tailwind CSS",
+      "HTML5",
+      "Redux",
+      "TypeScript",
+      "MUI",
+    ],
     imageUrl: "/projects/ecommerce.jpg",
     githubUrl: "https://github.com/rajeshk1909/RBAC-FE",
     liveUrl: "https://rbac-ui.onrender.com",
@@ -99,7 +106,7 @@ const Projects: React.FC = () => {
                   {project.technologies.map((tech, index) => (
                     <motion.span
                       key={index}
-                      className='px-4 py-2 font-medium font-lexend text-sm bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full'
+                      className='px-4 py-2 cursor-default font-medium font-lexend text-sm bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full'
                       whileHover={{ scale: 1.05 }}>
                       {tech}
                     </motion.span>
