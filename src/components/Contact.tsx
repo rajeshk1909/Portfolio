@@ -2,7 +2,7 @@ import * as React from "react"
 import { motion } from "framer-motion"
 import emailjs from "@emailjs/browser"
 import toast, { Toaster } from "react-hot-toast"
-import { FiLoader } from "react-icons/fi" 
+import { FiLoader } from "react-icons/fi"
 
 const Contact: React.FC = () => {
   const formRef = React.useRef<HTMLFormElement>(null)
@@ -15,10 +15,10 @@ const Contact: React.FC = () => {
     setIsSubmitting(true)
     try {
       await emailjs.sendForm(
-        "service_your_service_id", // Replace with your EmailJS service ID
-        "template_your_template_id", // Replace with your EmailJS template ID
+        "service_gqgu50h",
+        "template_nel7kso",
         formRef.current,
-        "your_public_key" // Replace with your EmailJS public key
+        "LvwEUE5w6ajjZaJKp"
       )
       toast.success("Message sent successfully!")
       formRef.current.reset()
@@ -56,7 +56,7 @@ const Contact: React.FC = () => {
             <div className='group'>
               <input
                 type='text'
-                name='user_name'
+                name='name'
                 required
                 className='w-full px-6 py-4 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all duration-300'
                 placeholder='Your Name'
