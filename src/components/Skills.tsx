@@ -1,5 +1,7 @@
 import * as React from "react"
 import { motion } from "framer-motion"
+import AOS from "aos"
+import "aos/dist/aos.css"
 import {
   FaReact,
   FaNodeJs,
@@ -28,21 +30,30 @@ const skills: Skill[] = [
 ]
 
 const Skills: React.FC = () => {
+  React.useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+      offset: 150,
+    })
+  }, [])
+
   return (
     <section
       id='skills'
-      className='py-24 bg-gradient-to-b from-indigo-900 via-purple-900 to-black overflow-hidden'>
+      className='sm:py-24 pb-10 bg-gradient-to-b from-indigo-900 via-purple-900 to-black overflow-hidden'>
       <div className='container mx-auto px-6'>
-        <h2 className='text-5xl font-bold text-center text-white mb-16 font-montserrat'>
+        <h2 className='sm:text-5xl text-3xl font-bold text-center text-white mb-16 font-montserrat'>
           My Skills
         </h2>
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-10'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-10 gap-6 sm:mb-10'>
           {skills.map((skill, index) => (
             <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              key={index}
+              // initial={{ opacity: 0, y: 30 }}
+              // whileInView={{ opacity: 1, y: 0 }}
+              // transition={{ duration: 0.5, delay: index * 0.2 }}
+              data-aos='fade-right'
               className='relative bg-gradient-to-r from-gray-800 to-gray-700 shadow-xl rounded-xl p-7 hover:shadow-2xl transform hover:scale-105 transition-all duration-300'>
               <div className='flex items-center mb-6'>
                 <div className='w-16 h-16 flex items-center justify-center bg-gray-900 rounded-full text-4xl shadow-md'>

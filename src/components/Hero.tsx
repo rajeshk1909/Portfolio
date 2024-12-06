@@ -4,7 +4,6 @@ import { TypeAnimation } from "react-type-animation"
 import { FaArrowRight, FaDownload } from "react-icons/fa"
 
 const Hero: React.FC = () => {
-
   const handleDownloadResume = () => {
     const resumeUrl = "/resume.pdf"
     const link = document.createElement("a")
@@ -34,7 +33,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: "easeOut" }}>
-          <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold font-montserrat text-white mb-6 tracking-tight leading-tight'>
+          <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold flex items-center justify-center flex-col gap-3 sm:gap-5 sm:flex-row font-montserrat text-white mb-6 tracking-tight leading-tight'>
             Hi, I'm <span className='text-gradient'>Rajesh Kumar</span>
           </h1>
           <div className='text-2xl sm:text-3xl tracking-wide font-medium font-lexend md:text-4xl text-gray-300 mb-10'>

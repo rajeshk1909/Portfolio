@@ -57,7 +57,7 @@ const Navbar: React.FC = () => {
               key={item.id}
               to={item.id}
               smooth={true}
-              className='flex font-lexend font-medium items-center space-x-2 text-gray-300 hover:text-white cursor-pointer capitalize tracking-wide transition-all duration-300'>
+              className='flex font-montserrat font-medium items-center space-x-2 text-gray-300 hover:text-white cursor-pointer capitalize tracking-wide transition-all duration-300'>
               {item.icon}
               <span>{item.label}</span>
             </Link>
@@ -74,16 +74,18 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className='md:hidden absolute top-16 left-0 w-full bg-gradient-to-r from-indigo-800 to-purple-800 text-center py-4 shadow-lg'>
+        <div className='md:hidden absolute top-16 left-0 w-full bg-gradient-to-r from-cyan-700 via-purple-800 to-indigo-800 text-center py-6 shadow-2xl rounded-b-lg'>
           {navItems.map((item) => (
             <Link
               key={item.id}
               to={item.id}
               smooth={true}
               onClick={() => setIsMenuOpen(false)}
-              className='flex items-center justify-center space-x-2 text-gray-300 py-3 hover:text-white text-lg font-medium capitalize tracking-wide'>
-              {item.icon}
-              <span>{item.label}</span>
+              className='flex items-center justify-start px-6 py-4 space-x-4 text-gray-200 hover:bg-gradient-to-r hover:from-purple-600 hover:to-indigo-600 hover:text-white text-lg font-medium capitalize tracking-wider rounded-md transition-all duration-300 shadow-md'>
+              <div className='p-2 bg-gray-800 rounded-full shadow-md hover:bg-purple-600 transition-all duration-300'>
+                {item.icon}
+              </div>
+              <span className='flex-grow text-left'>{item.label}</span>
             </Link>
           ))}
         </div>

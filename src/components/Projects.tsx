@@ -1,7 +1,9 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { motion } from "framer-motion"
 import { Project } from "../types"
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa"
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 const projects: Project[] = [
   {
@@ -67,6 +69,14 @@ const projects: Project[] = [
 ]
 
 const Projects: React.FC = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+      offset: 150,
+    })
+  }, [])
+
   return (
     <section
       id='projects'
@@ -76,17 +86,18 @@ const Projects: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className='text-5xl font-bold font-montserrat text-center mb-12 text-gray-100'>
+          className='md:text-5xl text-2xl font-bold font-montserrat text-center mb-12 text-gray-100'>
           Featured Projects
         </motion.h2>
 
         <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>
           {projects.map((project, index) => (
             <motion.div
+              data-aos='fade-right'
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              // initial={{ opacity: 0, y: 30 }}
+              // whileInView={{ opacity: 1, y: 0 }}
+              // transition={{ duration: 0.6, delay: index * 0.1 }}
               className='relative bg-gray-800 rounded-xl shadow-lg overflow-hidden  hover:shadow-xl transform transition-transform duration-500'>
               <div className='relative'>
                 <img
@@ -106,7 +117,7 @@ const Projects: React.FC = () => {
                   {project.technologies.map((tech, index) => (
                     <motion.span
                       key={index}
-                      className='px-4 py-2 cursor-default font-medium font-lexend text-sm bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full'
+                      className='px-4 py-2 cursor-default font-medium font-lexend text-sm bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg'
                       whileHover={{ scale: 1.05 }}>
                       {tech}
                     </motion.span>
@@ -119,8 +130,8 @@ const Projects: React.FC = () => {
                       href={project.githubUrl}
                       target='_blank'
                       rel='noopener noreferrer'
-                      className={`flex items-center px-6 py-2 bg-gray-700 font-medium font-kufam text-gray-300 rounded-lg shadow-lg hover:bg-gray-600 transition-all duration-300`}>
-                      <FaGithub className='mr-2 text-lg' />
+                      className={`flex items-center hover:scale-105 sm:px-6 px-4 py-2 font-medium bg-gradient-to-t from-purple-600 via-purple-600 to-blue-500 hover:from-blue-500 hover:via-purple-600 hover:to-purple-600 rounded-full font-kufam text-gray-300 text-sm sm:text-base shadow-lg hover:bg-gray-600 transition-all duration-300`}>
+                      <FaGithub className='mr-2 sm:text-lg' />
                       GitHub
                     </a>
                   )}
@@ -129,7 +140,7 @@ const Projects: React.FC = () => {
                       href={project.liveUrl}
                       target='_blank'
                       rel='noopener noreferrer'
-                      className='flex items-center px-6 py-2 bg-blue-600 text-white font-medium font-kufam rounded-lg shadow-lg hover:bg-blue-500 transition-all duration-300'>
+                      className='flex items-center hover:scale-105 sm:px-6 px-4 py-2 bg-gradient-to-t from-purple-600 via-purple-600 to-blue-500 hover:from-blue-500 hover:via-purple-600 hover:to-purple-600 text-white font-medium font-kufam rounded-full shadow-lg sm:text-base hover:bg-blue-500 text-sm transition-all duration-300'>
                       <FaExternalLinkAlt className='mr-2 text-lg' />
                       Live Demo
                     </a>
