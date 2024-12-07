@@ -22,12 +22,12 @@ const projects: Project[] = [
     description:
       "A fully animated social networking platform that allows users to connect, share, and discover content with smooth animations and interactions.",
     technologies: [
-      "React",
+      "React Vite",
       "HTML5",
-      "Vite",
       "TypeScript",
       "MUI",
       "Tailwind CSS",
+      "AOS",
     ],
     imageUrl: "/projects/ecommerce.jpg",
     githubUrl: "https://github.com/rajeshk1909",
