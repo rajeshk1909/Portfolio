@@ -73,7 +73,7 @@ const Projects: React.FC = () => {
     AOS.init({
       duration: 1000,
       once: false,
-      offset: 150,
+      offset: 100,
     })
   }, [])
 
@@ -87,7 +87,7 @@ const Projects: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className='md:text-5xl text-2xl font-bold font-montserrat text-center mb-12 text-gray-100'>
-          Featured Projects
+          Project Experience
         </motion.h2>
 
         <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>

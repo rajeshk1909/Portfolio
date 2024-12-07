@@ -44,7 +44,7 @@ const Skills: React.FC = () => {
       className='sm:py-24 pb-10 bg-gradient-to-b from-indigo-900 via-purple-900 to-black overflow-hidden'>
       <div className='container mx-auto px-6'>
         <h2 className='sm:text-5xl text-3xl font-bold text-center text-white mb-16 font-montserrat'>
-          My Skills
+           Skills
         </h2>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-10 gap-6 sm:mb-10'>
           {skills.map((skill, index) => (

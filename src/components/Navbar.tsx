@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link } from "react-scroll"
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import { FaBars, FaTimes } from "react-icons/fa"
 import { AiOutlineHome, AiOutlineProject, AiOutlineMail } from "react-icons/ai"
 import { BiCodeAlt } from "react-icons/bi"
@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 600)
+      setIsScrolled(window.scrollY > 50)
     }
 
     window.addEventListener("scroll", handleScroll)
@@ -35,6 +35,8 @@ const Navbar: React.FC = () => {
       className={`fixed w-full z-50 py-5 transition-all duration-300 ${
         isScrolled
           ? "bg-gradient-to-r from-indigo-800 to-purple-800 shadow-lg"
+          : isMenuOpen
+          ? "bg-gradient-to-r from-indigo-800 via-purple-700 to-blue-800"
           : "bg-transparent"
       }`}>
       <div className='container md:px-10 px-5 flex justify-between items-center'>
@@ -46,7 +48,7 @@ const Navbar: React.FC = () => {
           <motion.div
             whileHover={{ scale: 1.1 }}
             className='flex items-center space-x-2'>
-            <span className=''>Portfolio</span>
+            <span>Portfolio</span>
           </motion.div>
         </Link>
 
@@ -67,29 +69,43 @@ const Navbar: React.FC = () => {
         {/* Hamburger Icon for Mobile */}
         <div className='md:hidden'>
           <button onClick={toggleMenu} className='text-white'>
-            {isMenuOpen ? <FaTimes size={28} /> : <FaBars size={28} />}
+            {isMenuOpen ? <FaTimes size={16} /> : <FaBars size={16} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className='md:hidden absolute top-16 left-0 w-full bg-gradient-to-r from-cyan-700 via-purple-800 to-indigo-800 text-center py-6 shadow-2xl rounded-b-lg'>
-          {navItems.map((item) => (
-            <Link
-              key={item.id}
-              to={item.id}
-              smooth={true}
-              onClick={() => setIsMenuOpen(false)}
-              className='flex items-center justify-start px-6 py-4 space-x-4 text-gray-200 hover:bg-gradient-to-r hover:from-purple-600 hover:to-indigo-600 hover:text-white text-lg font-medium capitalize tracking-wider rounded-md transition-all duration-300 shadow-md'>
-              <div className='p-2 bg-gray-800 rounded-full shadow-md hover:bg-purple-600 transition-all duration-300'>
-                {item.icon}
-              </div>
-              <span className='flex-grow text-left'>{item.label}</span>
-            </Link>
-          ))}
-        </div>
-      )}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ y: -400 }}
+            animate={{ y: 0 }}
+            exit={{ y: -400 }}
+            transition={{ duration: 0.3 }}
+            className='md:hidden absolute w-full bg-gradient-to-r from-indigo-800 via-purple-700 to-blue-800 text-white shadow-lg'>
+            {/* Background Curve */}
+            <div className='relative overflow-hidden'>
+              <div className='absolute top-0 left-0 w-full h-24 bg-gradient-to-r from-indigo-900 via-purple-800 to-blue-700 transform rotate-12 -skew-x-12'></div>
+              <div className='absolute bottom-0 left-0 w-full h-24 bg-gradient-to-l from-indigo-700 via-purple-600 to-blue-800 transform rotate-6'></div>
+            </div>
+
+            {/* Menu Items */}
+            <div className='relative z-10 flex flex-col items-center py-6 space-y-6 px-4'>
+              {navItems.map((item) => (
+                <Link
+                  key={item.id}
+                  to={item.id}
+                  smooth={true}
+                  onClick={() => setIsMenuOpen(false)}
+                  className='flex items-center justify-center space-x-3 px-6 py-3 bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 text-white rounded-lg shadow-xl transform transition-transform duration-300 hover:scale-110 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-700 w-full max-w-xs mx-auto'>
+                  <div className='text-2xl'>{item.icon}</div>
+                  <span className='text-lg font-semibold'>{item.label}</span>
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   )
 }
