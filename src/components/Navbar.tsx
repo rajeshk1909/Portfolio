@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
         {/* Hamburger Icon for Mobile */}
         <div className='md:hidden'>
           <button onClick={toggleMenu} className='text-white'>
-            {isMenuOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
+            {isMenuOpen ? <FaTimes size={19} /> : <FaBars size={19} />}
           </button>
         </div>
       </div>
