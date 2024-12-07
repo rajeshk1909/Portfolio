@@ -33,10 +33,8 @@ const Navbar: React.FC = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed w-full z-50 py-5 transition-all duration-300 ${
-        isScrolled
-          ? "bg-gradient-to-r from-indigo-800 to-purple-800 shadow-lg"
-          : isMenuOpen
-          ? "bg-gradient-to-r from-indigo-800 via-purple-700 to-blue-800"
+        isScrolled || isMenuOpen
+          ? "bg-gradient-to-r from-indigo-800 via-purple-700 to-blue-800 shadow-lg"
           : "bg-transparent"
       }`}>
       <div className='container md:px-10 px-5 flex justify-between items-center'>
